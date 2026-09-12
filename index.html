@@ -1,0 +1,1279 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Sneha & Sreeji | Wedding</title><style>
+
+/* =========================================
+   BASIC
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f1dff0;
+    color: #574457;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   OPENING COVER
+========================================= */
+
+.cover {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(75,105,78,0.4),
+            transparent 55%
+        ),
+        #173b2d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.cover.opened {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.08);
+}
+
+
+/* Cover pattern */
+
+.cover::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+
+    border: 1px solid rgba(207,174,103,0.65);
+
+    background:
+        repeating-radial-gradient(
+            ellipse at center,
+            transparent 0px,
+            transparent 20px,
+            rgba(205,174,105,0.08) 21px,
+            transparent 23px
+        );
+
+    opacity: 0.7;
+}
+
+
+/* Corners */
+
+.corner {
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-color: #c9a765;
+    border-style: solid;
+
+    opacity: 0.7;
+}
+
+.corner.tl {
+    top: 30px;
+    left: 30px;
+
+    border-width:
+        1px
+        0
+        0
+        1px;
+}
+
+.corner.tr {
+    top: 30px;
+    right: 30px;
+
+    border-width:
+        1px
+        1px
+        0
+        0;
+}
+
+.corner.bl {
+    bottom: 30px;
+    left: 30px;
+
+    border-width:
+        0
+        0
+        1px
+        1px;
+}
+
+.corner.br {
+    bottom: 30px;
+    right: 30px;
+
+    border-width:
+        0
+        1px
+        1px
+        0;
+}
+
+
+/* Cover content */
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 430px;
+
+    text-align: center;
+
+    color: #d8b873;
+}
+
+.cover-small {
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+
+    opacity: 0.9;
+}
+
+.cover-names {
+    font-size: 42px;
+
+    font-weight: normal;
+
+    letter-spacing: 2px;
+
+    line-height: 1.2;
+}
+
+.cover-and {
+    font-size: 25px;
+
+    margin: 8px 0;
+
+    font-style: italic;
+}
+
+.cover-date {
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+
+/* Seal */
+
+.seal-line {
+    height: 120px;
+
+    width: 1px;
+
+    background: #d5b16d;
+
+    margin: 30px auto 0;
+}
+
+.seal {
+    width: 76px;
+    height: 76px;
+
+    border-radius: 50%;
+
+    background: #e5bd76;
+
+    color: #214533;
+
+    margin: -1px auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    box-shadow:
+        0 0 0 5px rgba(229,189,118,0.12),
+        0 0 25px rgba(0,0,0,0.25);
+
+    cursor: pointer;
+
+    animation: sealPulse 2s infinite;
+}
+
+@keyframes sealPulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+.tap {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   MAIN INVITATION
+========================================= */
+
+.invitation {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(255,255,255,0.3),
+            transparent 35%
+        ),
+        #efd9ee;
+}
+
+
+/* =========================================
+   HERO / INTRO PAGE
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px 25px;
+
+    position: relative;
+}
+
+
+/* Flowers */
+
+.flower {
+
+    position: absolute;
+
+    font-size: 25px;
+
+    opacity: 0.25;
+
+    animation:
+        floatFlower
+        7s
+        infinite
+        ease-in-out;
+}
+
+.flower.one {
+    top: 12%;
+    left: 12%;
+}
+
+.flower.two {
+    top: 35%;
+    right: 10%;
+
+    animation-delay: 2s;
+}
+
+.flower.three {
+    bottom: 15%;
+    left: 20%;
+
+    animation-delay: 4s;
+}
+
+@keyframes floatFlower {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(20deg);
+    }
+}
+
+
+.hero-small {
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+
+    font-size: 48px;
+
+    font-weight: normal;
+
+    font-style: italic;
+}
+
+.hero .amp {
+
+    font-size: 27px;
+
+    margin: 7px;
+}
+
+.hero-date {
+
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   HANDHOLD IMAGE
+========================================= */
+
+.intro-image {
+
+    width: 280px;
+
+    height: 350px;
+
+    margin: 35px auto;
+
+    border-radius:
+        140px
+        140px
+        25px
+        25px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    border:
+        1px solid
+        rgba(120,90,120,0.18);
+
+    box-shadow:
+        0 15px 40px
+        rgba(100,70,100,0.12);
+}
+
+.intro-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================
+   COUPLE SECTION / SECOND PAGE
+========================================= */
+
+.couple-section {
+
+    min-height: 100vh;
+
+    padding: 70px 25px;
+
+    text-align: center;
+}
+
+.section-label {
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 18px;
+
+    opacity: 0.65;
+}
+
+.section-title {
+
+    font-size: 34px;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   SECOND IMAGE - COUPLE.PNG
+========================================= */
+
+.couple-main-image {
+
+    width: 100%;
+
+    max-width: 380px;
+
+    height: 430px;
+
+    margin: 0 auto 45px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.2);
+
+    border:
+        1px solid
+        rgba(120,90,120,0.15);
+
+    box-shadow:
+        0 15px 40px
+        rgba(100,70,100,0.12);
+}
+
+.couple-main-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================
+   PERSON CARDS
+========================================= */
+
+.person-card {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    margin: 25px auto;
+
+    padding: 30px 20px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    border:
+        1px solid
+        rgba(120,90,120,0.15);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(100,70,100,0.08);
+}
+
+.person-image {
+
+    width: 160px;
+
+    height: 160px;
+
+    border-radius: 50%;
+
+    margin: 0 auto 20px;
+
+    overflow: hidden;
+
+    background: #dfc9dc;
+}
+
+.person-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.person-card h3 {
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+    font-style: italic;
+}
+
+.person-card p {
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   WEDDING DETAILS
+========================================= */
+
+.details {
+
+    min-height: 100vh;
+
+    padding: 70px 25px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.detail-box {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding: 35px 20px;
+
+    margin-top: 25px;
+
+    background:
+        rgba(255,255,255,0.2);
+
+    border:
+        1px solid
+        rgba(120,90,120,0.15);
+
+    border-radius: 20px;
+}
+
+.detail-row {
+
+    padding: 20px;
+
+    border-bottom:
+        1px solid
+        rgba(100,70,100,0.12);
+}
+
+.detail-row:last-child {
+
+    border-bottom: none;
+}
+
+.detail-number {
+
+    font-size: 34px;
+
+    font-style: italic;
+
+    margin-bottom: 7px;
+}
+
+.detail-label {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+.location {
+
+    min-height: 100vh;
+
+    padding: 60px 25px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/*
+   IMPORTANT:
+   This is a normal HTTPS Google Maps URL.
+   We are NOT using maps.app.goo.gl.
+*/
+
+.map-button {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 16px 28px;
+
+    border-radius: 30px;
+
+    background: #39755e;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(50,90,70,0.2);
+
+    transition:
+        transform 0.3s;
+}
+
+.map-button:active {
+
+    transform: scale(0.95);
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+}
+
+.final h2 {
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    line-height: 1.3;
+}
+
+.final-heart {
+
+    font-size: 45px;
+
+    margin: 25px;
+}
+
+.final-names {
+
+    font-size: 27px;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   SCROLL ANIMATION
+========================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+.music {
+
+    position: fixed;
+
+    right: 18px;
+
+    bottom: 18px;
+
+    z-index: 50;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #39755e;
+
+    color: white;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.15);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .cover-names {
+        font-size: 38px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .intro-image {
+        width: 250px;
+        height: 315px;
+    }
+
+    .couple-main-image {
+        height: 380px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .final h2 {
+        font-size: 32px;
+    }
+
+}
+
+</style></head><body><!-- =====================================
+     OPENING COVER
+===================================== --><div class="cover" id="cover"><div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+<div class="cover-content">
+
+    <div class="cover-small">
+        THE WEDDING INVITATION
+    </div>
+
+    <div class="cover-names">
+        Sneha
+    </div>
+
+    <div class="cover-and">
+        &
+    </div>
+
+    <div class="cover-names">
+        Sreeji
+    </div>
+
+    <div class="cover-date">
+        15 NOVEMBER 2026 · 9:00 AM
+    </div>
+
+    <div class="seal-line"></div>
+
+    <div class="seal" id="openSeal">
+        S & S
+    </div>
+
+    <div class="tap">
+        TAP THE SEAL TO OPEN
+    </div>
+
+</div>
+
+</div><!-- =====================================
+     MAIN INVITATION
+===================================== --><main class="invitation"><!-- =====================================
+     INTRO PAGE
+===================================== --><section class="hero"><div class="flower one">✿</div>
+
+<div class="flower two">✾</div>
+
+<div class="flower three">❀</div>
+
+
+<div class="hero-small reveal">
+    WITH LOVE & BLESSINGS
+</div>
+
+
+<h1 class="reveal">
+    Sneha
+</h1>
+
+
+<div class="amp reveal">
+    &
+</div>
+
+
+<h1 class="reveal">
+    Sreeji
+</h1>
+
+
+<!-- FIRST IMAGE -->
+
+<div class="intro-image reveal">
+
+    <img
+        src="handhold.png"
+        alt="Sneha and Sreeji">
+
+</div>
+
+
+<div class="hero-date reveal">
+
+    15 NOVEMBER 2026
+
+    <br><br>
+
+    9:00 AM
+
+</div>
+
+</section><!-- =====================================
+     SECOND PAGE
+===================================== --><section class="couple-section"><div class="section-label reveal">
+    THE COUPLE
+</div>
+
+
+<h2 class="section-title reveal">
+    Two hearts, one beautiful beginning
+</h2>
+
+
+<!-- SECOND IMAGE -->
+
+<div class="couple-main-image reveal">
+
+    <img
+        src="couple.png"
+        alt="Sneha and Sreeji together">
+
+</div>
+
+
+
+<!-- SREEJI -->
+
+<div class="person-card reveal">
+
+    <div class="person-image">
+
+        <img
+            src="sreeji.png"
+            alt="Sreeji">
+
+    </div>
+
+
+    <h3>
+        Sreeji
+    </h3>
+
+
+    <p>
+        The Groom
+    </p>
+
+</div>
+
+
+
+<div class="section-title">
+    &
+</div>
+
+
+
+<!-- SNEHA -->
+
+<div class="person-card reveal">
+
+    <div class="person-image">
+
+        <img
+            src="sneha.png"
+            alt="Sneha">
+
+    </div>
+
+
+    <h3>
+        Sneha
+    </h3>
+
+
+    <p>
+        The Bride
+    </p>
+
+</div>
+
+</section><!-- =====================================
+     DETAILS
+===================================== --><section class="details"><div class="section-label reveal">
+    SAVE THE DATE
+</div>
+
+
+<h2 class="section-title reveal">
+    Our Wedding Day
+</h2>
+
+
+<div class="detail-box reveal">
+
+
+    <div class="detail-row">
+
+        <div class="detail-number">
+            15
+        </div>
+
+        <div class="detail-label">
+            NOVEMBER 2026
+        </div>
+
+    </div>
+
+
+    <div class="detail-row">
+
+        <div class="detail-number">
+            9:00 AM
+        </div>
+
+        <div class="detail-label">
+            WEDDING CEREMONY
+        </div>
+
+    </div>
+
+
+</div>
+
+</section><!-- =====================================
+     LOCATION
+===================================== --><section class="location"><div class="section-label reveal">
+    JOIN US
+</div>
+
+
+<h2 class="section-title reveal">
+
+    We would love to<br>
+
+    celebrate with you
+
+</h2>
+
+
+<p class="reveal">
+
+    15 November 2026
+
+    <br>
+
+    9:00 AM
+
+</p>
+
+
+
+<!--
+   WORKING GOOGLE MAPS LINK
+
+   Do NOT use maps.app.goo.gl here.
+
+   This directly opens the Google Maps
+   HTTPS page for the exact place.
+-->
+
+<a
+    class="map-button reveal"
+    href="https://www.google.com/maps/search/?api=1&query=9G97%2BM6G%20Sree%20Chakkulathamma%20Auditorium%2C%20SH%2012%2C%20Neerattupuram%2C%20Kerala%20689571"
+    target="_blank"
+    rel="noopener noreferrer">
+
+    📍 VIEW ON GOOGLE MAPS
+
+</a>
+  
+
+</section><!-- =====================================
+     FINAL
+===================================== --><section class="final"><div class="section-label reveal">
+    WITH LOVE
+</div>
+
+
+<h2 class="reveal">
+
+    Your presence will make
+
+    <br>
+
+    our day even more special
+
+</h2>
+
+
+<div class="final-heart reveal">
+    ♡
+</div>
+
+
+<div class="final-names reveal">
+    Sneha & Sreeji
+</div>
+
+</section></main><!-- =====================================
+     MUSIC BUTTON
+===================================== --><button
+class="music"
+id="musicButton">
+
+♪
+
+</button><script>
+
+
+/* =====================================
+   OPEN INVITATION
+===================================== */
+
+const cover =
+    document.getElementById("cover");
+
+const seal =
+    document.getElementById("openSeal");
+
+
+seal.addEventListener(
+    "click",
+    function() {
+
+        cover.classList.add("opened");
+
+
+        setTimeout(
+            function() {
+
+                cover.style.display = "none";
+
+            },
+            1000
+        );
+
+    }
+);
+
+
+
+/* =====================================
+   SCROLL ANIMATION
+===================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries) {
+
+            entries.forEach(
+                function(entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+revealElements.forEach(
+    function(element) {
+
+        observer.observe(element);
+
+    }
+);
+
+
+
+/* =====================================
+   MUSIC BUTTON
+===================================== */
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+
+let playing = false;
+
+
+musicButton.addEventListener(
+    "click",
+    function() {
+
+        playing = !playing;
+
+
+        if (playing) {
+
+            musicButton.innerHTML = "❚❚";
+
+            alert(
+                "Music will be added here later ❤️"
+            );
+
+        }
+
+        else {
+
+            musicButton.innerHTML = "♪";
+
+        }
+
+    }
+);
+
+</script></body></html>
